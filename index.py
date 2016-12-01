@@ -11,9 +11,9 @@ def index():
 
 @app.route('/login', methods=["POST"])
 def login():
-    captcha_id = "YOUR_CAPTCHA_ID"
-    secret_id = "YOUR_SECRET_ID"
-    secret_key = "YOUR_SECRET_KEY"
+    captcha_id = "YOUR_CAPTCHA_ID" # 验证码id
+    secret_id = "YOUR_SECRET_ID"   # 验证码密钥对id
+    secret_key = "YOUR_SECRET_KEY" # 验证码密钥对key
 
     verifier = NECaptchaVerifier(captcha_id, SecretPair(secret_id, secret_key))
     validate = request.form[verifier.REQ_VALIDATE]

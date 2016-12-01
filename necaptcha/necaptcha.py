@@ -8,11 +8,17 @@ import urllib2
 
 VERSION = "v1"
 
+"""
+验证码密钥对
+"""
 class SecretPair(object):
     def __init__(self, secret_id, secret_key):
         self.secret_id = secret_id
         self.secret_key = secret_key
 
+"""
+验证码二次校验
+"""
 class NECaptchaVerifier(object):
     REQ_VALIDATE = "NECaptchaValidate"
     API_URL = "http://c.dun.163yun.com/api/v1/verify"
