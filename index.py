@@ -21,7 +21,8 @@ def login():
     result = verifier.verify(validate, user);
 
     print result
-    msg = "<html><body><h1>验证成功</h1></body></html>" if result else "<html><body><h1>验证失败</h1></body></html>"
+    msg = "<html><body><h1>验证成功 <a href='/'>返回首页</a></h1></body></html>" \
+        if result else "<html><body><h1>验证失败 <a href='/'>返回首页</a></h1></body></html>"
     return msg
 
 if __name__ == "__main__":
