@@ -6,7 +6,7 @@ from hashlib import md5
 import urllib
 import urllib2
 
-VERSION = "v1"
+VERSION = "v2"
 
 """
 验证码密钥对
@@ -21,7 +21,7 @@ class SecretPair(object):
 """
 class NECaptchaVerifier(object):
     REQ_VALIDATE = "NECaptchaValidate"
-    API_URL = "http://c.dun.163yun.com/api/v1/verify"
+    API_URL = "http://c.dun.163yun.com/api/v2/verify"
 
     def __init__(self, captcha_id, secret_pair):
         self.captcha_id = captcha_id
