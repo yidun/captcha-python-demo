@@ -55,4 +55,5 @@ class NECaptchaVerifier(object):
         for k in sorted(params.keys()):
             buff += str(k)+ str(params[k])
         buff += self.secret_pair.secret_key
+        buff = buff.encode('utf-8')
         return md5(buff).hexdigest()
