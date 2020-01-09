@@ -4,7 +4,7 @@ import json
 import time
 from hashlib import md5
 import urllib
-import urllib2
+import urllib.request
 
 VERSION = "v2"
 
@@ -38,17 +38,18 @@ class NECaptchaVerifier(object):
         params["nonce"] = int(random.random()*100000000)
         params["signature"] = self.sign(params)
 
-        print "debug: ", params
+        print("debug: ", params)
 
         try:
-            params = urllib.urlencode(params)
-            request = urllib2.Request(self.API_URL, params)
-            content = urllib2.urlopen(request, timeout=5).read()
+            params = urllib.parse.urlencode(params)
+            params = params.encode('utf-8')
+            request = urllib.request.Request(self.API_URL, params)
+            content = urllib.request.urlopen(request, timeout=5).read()
             ret = json.loads(content)
-            print "debug: ", ret
+            print("debug: ", ret)
             return ret['result'] if 'result' in ret else False
-        except Exception, ex:
-            print "调用API接口失败:", str(ex)
+        except Exception as  ex:
+            print("调用API接口失败:", str(ex))
 
     def sign(self, params=None):
         buff = ""
